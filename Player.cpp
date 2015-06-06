@@ -1,8 +1,10 @@
 #include "Bullet.h"
+#include "Enemy.h"
 #include "Player.h"
-//#include <QDebug>
+#include <QDebug>
 #include <QKeyEvent>
 #include <QGraphicsScene>
+
 
 void Player::keyPressEvent(QKeyEvent *event)
 {
@@ -46,4 +48,11 @@ void Player::keyPressEvent(QKeyEvent *event)
         bullet->setPos(x(),y());
         scene()->addItem(bullet);
     }
+}
+
+void Player::spawn()
+{
+    //create an enemy
+    Enemy * enemy = new Enemy();
+    scene()->addItem(enemy);
 }

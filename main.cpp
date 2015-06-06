@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QGraphicsScene>
+#include <QTimer>
 //#include <QGraphicsRectItem>
 #include "Player.h"
 #include <QGraphicsView>
@@ -40,6 +41,11 @@ int main(int argc, char *argv[])
 
     // player position
     player->setPos(view->width()/2, view->height() - player->rect().height());
+
+    // spawn enemies
+    QTimer * timer = new QTimer();
+    QObject:: connect(timer,SIGNAL(timeout()), player, SLOT(spawn()));
+    timer->start(2000);
 
     return a.exec();
 }
