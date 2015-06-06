@@ -16,10 +16,10 @@ Enemy::Enemy()
     // draw enemy
     setRect(0,0,100,100);
 
-    // connect
-    QTimer * timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(move()));
-    timer->start(50);
+    // move enemies timer
+    QTimer * moveTimer = new QTimer();
+    QObject::connect(moveTimer, SIGNAL(timeout()), this, SLOT(move()));
+    moveTimer->start(50);
 }
 
 void Enemy::move()

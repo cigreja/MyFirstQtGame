@@ -1,11 +1,25 @@
 #include "Bullet.h"
 #include "Enemy.h"
+#include "Game.h"
 #include "Player.h"
 #include <QDebug>
 #include <QKeyEvent>
 #include <QGraphicsScene>
+#include <typeinfo>
+#include <QTimer>
 
+extern Game * game;
 
+// Player
+Player::Player()
+{
+    // check for enemy collisions
+    QTimer * collisionTimer = new QTimer();
+    QObject:: connect(collisionTimer,SIGNAL(timeout()), this, SLOT(collision()));
+    collisionTimer->start(250);
+}
+
+// keyPressEvent
 void Player::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Left){
@@ -50,9 +64,24 @@ void Player::keyPressEvent(QKeyEvent *event)
     }
 }
 
+// spawn
 void Player::spawn()
 {
     //create an enemy
     Enemy * enemy = new Enemy();
     scene()->addItem(enemy);
 }
+
+// collision
+void Player::collision()
+{
+    // lose health if I collide with the enemy
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for (int i = 0, n = colliding_items.size(); i<n; ++i){
+        if (typeid(*(colliding_items[i])) == typeid(Enemy)){
+            // decrease health
+            game->health->decrease();
+        }
+    }
+}
+

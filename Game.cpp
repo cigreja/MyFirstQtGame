@@ -2,6 +2,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 //#include <QGraphicsRectItem>
+#include "Enemy.h"
 #include "Player.h"
 #include <QGraphicsView>
 
@@ -17,9 +18,9 @@ Game::Game(QWidget *parent)
     player->setFocus();
 
     // spawn enemies
-    QTimer * timer = new QTimer();
-    QObject:: connect(timer,SIGNAL(timeout()), player, SLOT(spawn()));
-    timer->start(2000);
+    QTimer * spawnTimer = new QTimer();
+    QObject:: connect(spawnTimer,SIGNAL(timeout()), player, SLOT(spawn()));
+    spawnTimer->start(2000);
 
     // score
     score = new Score();
