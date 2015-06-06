@@ -2,12 +2,16 @@
 #define BULLET
 
 #include <QGraphicsRectItem>
+#include <QObject>
 
 
-class Bullet: public QGraphicsRectItem{
+class Bullet: public QObject, public QGraphicsRectItem{
 
+    Q_OBJECT
 public:
     Bullet();
+public slots:
+    void move();
 };
 
 #endif // BULLET

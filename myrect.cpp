@@ -22,6 +22,7 @@ void MyRect::keyPressEvent(QKeyEvent *event)
         // create a bullet
         Bullet * bullet = new Bullet();
         //qDebug() << "bullet created";
+        bullet->setPos(x(),y());
         scene()->addItem(bullet);
     }
 }
