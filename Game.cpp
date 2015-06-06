@@ -13,8 +13,8 @@ Game::Game(QWidget *parent)
 
     // player
     player = new Player();
-    player->setRect(0,0,100,100);
-    player->setPos(width()/2, height() - player->rect().height());
+    //player->setRect(0,0,100,100);
+    player->setPos(width()/2, height());
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
 

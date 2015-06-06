@@ -1,16 +1,16 @@
 #ifndef PLAYER
 #define PLAYER
 
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QMediaPlayer>
 #include <QObject>
 
-class Player: public QObject, public QGraphicsRectItem{
+class Player: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 private:
     QMediaPlayer * bulletsound;
 public:
-    Player();
+    Player(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event);
 public slots:
     void spawn();

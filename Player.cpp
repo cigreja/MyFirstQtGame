@@ -11,8 +11,12 @@
 extern Game * game;
 
 // Player
-Player::Player()
+Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
+    // set pixmap image for player ship
+    setPixmap(QPixmap(":/player-sprites/player-ship.png"));
+
+    // set bullet sound
     bulletsound = new QMediaPlayer();
     bulletsound->setMedia(QUrl("qrc:/sounds/gun-shot.wav"));
 
@@ -34,11 +38,11 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
     }
     else if (event->key() == Qt::Key_Right){
-        if (pos().x() + rect().width() < 800){
+        if (pos().x()  < 800){
             setPos(x()+10, y());
         }
-        else if (pos().x() + rect().width() > 800){
-            setPos(800 - rect().width(), y());
+        else if (pos().x() > 800){
+            setPos(800, y());
         }
 
     }
@@ -51,11 +55,11 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
     }
     else if (event->key() == Qt::Key_Down){
-        if (pos().y() + rect().height() < 600){
+        if (pos().y() < 600){
             setPos(x(), y()+10);
         }
-        else if (pos().y() + rect().height() > 600){
-            setPos(x(), 600 - rect().height());
+        else if (pos().y() > 600){
+            setPos(x(), 600);
         }
     }
     else if (event->key() == Qt::Key_Space){

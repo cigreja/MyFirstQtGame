@@ -16,6 +16,10 @@ Enemy::Enemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
     // draw enemy
     //setRect(0,0,100,100);
     setPixmap(QPixmap(":/enemy-sprites/enemy-ship.png"));
+    // this is for changing the rotation of the image
+    //setTransformOriginPoint(50,50); // size of image 50px x 50px
+    //setRotation(180); // rotate 180 degrees
+
 
     // move enemies timer
     QTimer * moveTimer = new QTimer();
