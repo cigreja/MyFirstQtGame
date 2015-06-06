@@ -1,10 +1,10 @@
-#include "bullet.h"
-#include "myrect.h"
+#include "Bullet.h"
+#include "Player.h"
 //#include <QDebug>
 #include <QKeyEvent>
 #include <QGraphicsScene>
 
-void MyRect::keyPressEvent(QKeyEvent *event)
+void Player::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Left){
         setPos(x()-10, y());

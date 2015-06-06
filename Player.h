@@ -1,12 +1,12 @@
-#ifndef MYRECT
-#define MYRECT
+#ifndef PLAYER
+#define PLAYER
 
 #include <QGraphicsRectItem>
 
-class MyRect: public QGraphicsRectItem{
+class Player: public QGraphicsRectItem{
 public:
     void keyPressEvent(QKeyEvent * event);
 };
 
-#endif // MYRECT
+#endif // PLAYER
 

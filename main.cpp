@@ -1,7 +1,7 @@
 #include <QApplication>
 #include <QGraphicsScene>
 //#include <QGraphicsRectItem>
-#include "myrect.h"
+#include "Player.h"
 #include <QGraphicsView>
 
 int main(int argc, char *argv[])
@@ -13,20 +13,31 @@ int main(int argc, char *argv[])
 
     // create an item to put into the scene
     // QGraphicsRectItem * rect = new QGraphicsRectItem();
-    MyRect * rect = new MyRect();
-    rect->setRect(0,0,100,100);
+    Player * player = new Player();
+    player->setRect(0,0,100,100);
 
     // add the item to the scene
-    scene->addItem(rect);
+    scene->addItem(player);
 
     // make rect focusable
-    rect->setFlag(QGraphicsItem::ItemIsFocusable);
-    rect->setFocus();
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player->setFocus();
 
 
     // create a view
     QGraphicsView * view = new QGraphicsView(scene);
+
+    // disable scrollbars
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // set size of scene and view
+    view->setFixedSize(800,600);
+    scene->setSceneRect(0,0,800,600);
+
+    // show view
     view->show();
+
 
     return a.exec();
 }
