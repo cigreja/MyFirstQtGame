@@ -37,6 +37,11 @@ Game::Game(QWidget *parent)
     scene->addItem(score);
     scene->addItem(health);
 
+    // play background music
+    QMediaPlayer *mPlayer = new QMediaPlayer();
+    mPlayer->setMedia(QUrl("qrc:/bgm/bgm019.mp3"));
+    mPlayer->play();
+
     // view *Game inherits View*
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
