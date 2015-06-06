@@ -73,10 +73,6 @@ void Player::keyPressEvent(QKeyEvent *event)
             bulletsound->play();
         }
 
-        // try this
-        bulletsound->setPosition(0);
-        bulletsound->play();
-
     }
 }
 

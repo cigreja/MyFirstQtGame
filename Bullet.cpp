@@ -8,10 +8,11 @@
 
 extern Game * game; // external global object
 
-Bullet::Bullet()
+Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
     // draw bullet
-    setRect(0,0,10,50);
+    //setRect(0,0,10,50);
+    setPixmap(QPixmap(":/player-sprites/player-bullet.png"));
 
     // connect
     QTimer * timer = new QTimer();
@@ -23,7 +24,7 @@ void Bullet::move()
 {
     // move bullet up
     setPos(x(),y() -10); // inverse y direction, because veiw and scene is upside down
-    if (pos().y() + rect().height() < 0){
+    if (pos().y()  < 0){
         scene()->removeItem(this);
         delete this;
     }

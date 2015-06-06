@@ -6,4 +6,15 @@
     <qresource prefix="/bgm">
         <file>bgm019.mp3</file>
     </qresource>
+    <qresource prefix="/enemy-sprites">
+        <file>enemy-bullet.png</file>
+        <file>enemy-ship.png</file>
+    </qresource>
+    <qresource prefix="/player-sprites">
+        <file>player-bullet.png</file>
+        <file>player-ship.png</file>
+    </qresource>
+    <qresource prefix="/bg-images">
+        <file>bg-image.png</file>
+    </qresource>
 </RCC>
