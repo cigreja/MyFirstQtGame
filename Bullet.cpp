@@ -1,6 +1,7 @@
 #include "Bullet.h"
-
 #include <QTimer>
+#include <QDebug>
+#include <QGraphicsScene>
 
 
 Bullet::Bullet()
@@ -17,5 +18,9 @@ Bullet::Bullet()
 void Bullet::move()
 {
     // move bullet up
-    setPos(x(),y() -10); // inverse y direction, not sure why
+    setPos(x(),y() -10); // inverse y direction, because veiw and scene is upside down
+    if (pos().y() + rect().height() < 0){
+        scene()->removeItem(this);
+        delete this;
+    }
 }

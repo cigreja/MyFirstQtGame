@@ -7,16 +7,37 @@
 void Player::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Left){
-        setPos(x()-10, y());
+        if (pos().x() < 0){
+            setPos(0, y());
+        }
+        else if (pos().x() > 0){
+            setPos(x()-10, y());
+        }
     }
     else if (event->key() == Qt::Key_Right){
-        setPos(x()+10, y());
+        if (pos().x() + rect().width() < 800){
+            setPos(x()+10, y());
+        }
+        else if (pos().x() + rect().width() > 800){
+            setPos(800 - rect().width(), y());
+        }
+
     }
     else if (event->key() == Qt::Key_Up){
-        setPos(x(), y()-10);
+        if (pos().y() > 0){
+            setPos(x(), y()-10);
+        }
+        else if (pos().y() < 0){
+            setPos(x(), 0);
+        }
     }
     else if (event->key() == Qt::Key_Down){
-        setPos(x(), y()+10);
+        if (pos().y() + rect().height() < 600){
+            setPos(x(), y()+10);
+        }
+        else if (pos().y() + rect().height() > 600){
+            setPos(x(), 600 - rect().height());
+        }
     }
     else if (event->key() == Qt::Key_Space){
         // create a bullet
