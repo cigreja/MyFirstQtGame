@@ -5,6 +5,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include <QGraphicsView>
+#include <QMediaPlayer>
 
 
 Game::Game(QWidget *parent)

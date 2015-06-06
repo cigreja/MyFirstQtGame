@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file>gun-shot.wav</file>
+        <file>explosion.wav</file>
+    </qresource>
+    <qresource prefix="/bgm">
+        <file>bgm019.mp3</file>
+    </qresource>
+</RCC>
