@@ -8,6 +8,7 @@
 #include <QMediaPlayer>
 
 
+
 Game::Game(QWidget *parent)
 {
 
@@ -36,6 +37,9 @@ Game::Game(QWidget *parent)
     scene->addItem(player);
     scene->addItem(score);
     scene->addItem(health);
+
+    // set backgroung image
+    setBackgroundBrush(QBrush(QImage(":/bg-images/bg-image.png")));
 
     // play background music
     QMediaPlayer *mPlayer = new QMediaPlayer();
