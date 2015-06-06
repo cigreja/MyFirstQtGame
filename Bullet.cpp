@@ -1,10 +1,12 @@
 #include "Bullet.h"
 #include "Enemy.h"
+#include "Game.h"
 #include <QTimer>
 #include <QDebug>
 #include <QGraphicsScene>
 #include <typeinfo>
 
+extern Game * game; // external global object
 
 Bullet::Bullet()
 {
@@ -26,7 +28,7 @@ void Bullet::move()
         delete this;
     }
 
-    // if bullet collides with enemy, destroy both
+    // if bullet collides with enemy, destroy both and increase score
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i<n; ++i){
         if (typeid(*(colliding_items[i])) == typeid(Enemy)){
@@ -36,6 +38,8 @@ void Bullet::move()
             // delete them both
             delete colliding_items[i];
             delete this;
+            // increase score
+            game->score->increase();
             return;
         }
     }

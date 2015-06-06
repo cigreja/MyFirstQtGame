@@ -8,8 +8,8 @@ Score::Score(QGraphicsItem *parent)
     // initialize the score to 0
     score = 0;
 
-    // draw the text
-    setPlainText(QString("Score: ") + QString::number(score)); // score
+    // draw the Score:0
+    setPlainText(QString("Score: ") + QString::number(score));
     setDefaultTextColor(Qt::blue);
     setFont(QFont("times",16));
 }
@@ -17,7 +17,9 @@ Score::Score(QGraphicsItem *parent)
 
 void Score::increase()
 {
+    // update the score
     score++;
+    setPlainText(QString("Score: ") + QString::number(score));
 }
 
 

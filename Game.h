@@ -1,6 +1,7 @@
 #ifndef GAME
 #define GAME
 
+#include "Health.h"
 #include "Player.h"
 #include "Score.h"
 
@@ -16,6 +17,7 @@ public:
     QGraphicsScene * scene;
     Player * player;
     Score * score;
+    Health * health;
 };
 
 #endif // GAME

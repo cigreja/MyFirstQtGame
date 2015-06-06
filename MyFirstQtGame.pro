@@ -17,13 +17,15 @@ SOURCES += main.cpp \
     Bullet.cpp \
     Enemy.cpp \
     Game.cpp \
-    Score.cpp
+    Score.cpp \
+    Health.cpp
 
 HEADERS  += \
     Bullet.h \
     Player.h \
     Enemy.h \
     Game.h \
-    Score.h
+    Score.h \
+    Health.h
 
 FORMS    +=

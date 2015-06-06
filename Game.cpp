@@ -24,11 +24,16 @@ Game::Game(QWidget *parent)
     // score
     score = new Score();
 
+    // health
+    health = new Health();
+    health->setPos(health->x(),health->y()+25);
+
     // scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
     scene->addItem(player);
     scene->addItem(score);
+    scene->addItem(health);
 
     // view *Game inherits View*
     setScene(scene);
