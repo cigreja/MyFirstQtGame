@@ -13,6 +13,9 @@ extern Game * game;
 // Player
 Player::Player()
 {
+    bulletsound = new QMediaPlayer();
+    bulletsound->setMedia(QUrl("qrc:/sounds/gun-shot.wav"));
+
     // check for enemy collisions
     QTimer * collisionTimer = new QTimer();
     QObject:: connect(collisionTimer,SIGNAL(timeout()), this, SLOT(collision()));
@@ -56,11 +59,24 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
     }
     else if (event->key() == Qt::Key_Space){
+
         // create a bullet
         Bullet * bullet = new Bullet();
-        //qDebug() << "bullet created";
         bullet->setPos(x(),y());
         scene()->addItem(bullet);
+
+        // play bulletsound
+        if (bulletsound->state() == QMediaPlayer::PlayingState){
+            bulletsound->setPosition(0);
+        }
+        else if (bulletsound->state() == QMediaPlayer::StoppedState){
+            bulletsound->play();
+        }
+
+        // try this
+        bulletsound->setPosition(0);
+        bulletsound->play();
+
     }
 }
 
