@@ -38,6 +38,8 @@ int main(int argc, char *argv[])
     // show view
     view->show();
 
+    // player position
+    player->setPos(view->width()/2, view->height() - player->rect().height());
 
     return a.exec();
 }
