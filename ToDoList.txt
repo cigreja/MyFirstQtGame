@@ -1,0 +1,8 @@
+To do list:
+1. Sounds do not repeat. They are only played once and never again.
+2. Player movement stiff. Can't move diagonally.
+3. Enemy AI
+4. Distribute the game.
+5. Start screen
+6. Game over screen
+7. Levels - Increase Difficulty

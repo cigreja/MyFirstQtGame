@@ -17,4 +17,8 @@
     <qresource prefix="/bg-images">
         <file>bg-image.png</file>
     </qresource>
+    <qresource prefix="/text-files">
+        <file>LICENSE</file>
+        <file>ToDoList.txt</file>
+    </qresource>
 </RCC>
