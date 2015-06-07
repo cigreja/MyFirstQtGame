@@ -26,10 +26,11 @@ Game::Game(QWidget *parent)
 
     // score
     score = new Score();
+    score->setPos(score->x() +50,score->y()+50);
 
     // health
     health = new Health();
-    health->setPos(health->x(),health->y()+25);
+    health->setPos(health->x() +50,health->y()+75);
 
     // scene
     scene = new QGraphicsScene();

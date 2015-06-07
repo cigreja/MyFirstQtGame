@@ -40,7 +40,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             setPos(x()-10, y());
         }
     }
-    else if (event->key() == Qt::Key_Right){
+    if (event->key() == Qt::Key_Right){
         if (pos().x()  < 800){
             setPos(x()+10, y());
         }
@@ -49,7 +49,7 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
 
     }
-    else if (event->key() == Qt::Key_Up){
+    if (event->key() == Qt::Key_Up){
         if (pos().y() > 0){
             setPos(x(), y()-10);
         }
@@ -57,7 +57,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             setPos(x(), 0);
         }
     }
-    else if (event->key() == Qt::Key_Down){
+    if (event->key() == Qt::Key_Down){
         if (pos().y() < 600){
             setPos(x(), y()+10);
         }
@@ -65,7 +65,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             setPos(x(), 600);
         }
     }
-    else if (event->key() == Qt::Key_Space){
+    if (event->key() == Qt::Key_Space){
 
         // create a bullet
         Bullet * bullet = new Bullet();
