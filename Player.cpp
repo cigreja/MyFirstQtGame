@@ -5,6 +5,8 @@
 #include <QDebug>
 #include <QKeyEvent>
 #include <QGraphicsScene>
+#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <typeinfo>
 #include <QTimer>
 
@@ -14,6 +16,7 @@ extern Game * game;
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
     // set pixmap image for player ship
+    // setRect(0,0,100,100);
     setPixmap(QPixmap(":/player-sprites/player-ship.png"));
 
     // set bullet sound
@@ -30,8 +33,8 @@ Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 void Player::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Left){
-        if (pos().x() < 0){
-            setPos(0, y());
+        if (pos().x() < -10){
+            setPos(-10, y());
         }
         else if (pos().x() > 0){
             setPos(x()-10, y());

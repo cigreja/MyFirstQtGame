@@ -33,7 +33,7 @@ Game::Game(QWidget *parent)
 
     // scene
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,800,600);
+    scene->setSceneRect(50,50,950,725);
     scene->addItem(player);
     scene->addItem(score);
     scene->addItem(health);
@@ -44,12 +44,12 @@ Game::Game(QWidget *parent)
     // play background music
     QMediaPlayer *mPlayer = new QMediaPlayer();
     mPlayer->setMedia(QUrl("qrc:/bgm/bgm019.mp3"));
-    mPlayer->play();
+    //mPlayer->play();
 
     // view *Game inherits View*
-    setScene(scene);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(800,600);
-    show();
+    this->setScene(scene);
+    this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    this->setFixedSize(950,725);
+    this->show();
 }

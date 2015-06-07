@@ -31,7 +31,7 @@ void Enemy::move()
 {
     // move enemy down
     setPos(x(),y() +5); // inverse y direction, because veiw and scene is upside down
-    if (pos().y()  > 650){
+    if (pos().y()  > 600){
         // delete item once off screen
         scene()->removeItem(this);
         delete this;
